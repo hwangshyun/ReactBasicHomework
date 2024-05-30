@@ -65,9 +65,10 @@ const Todoinput = () => {
         {todos.map((todo) => {
           return (
             <div className="todobox" key={todo.id}>
-              <h5>{todo.name}</h5>
-              <button onClick={() => changeTodo(todo.id)}>{todo.complete ? "취소" : "완료"}</button>
-              <button onClick={()=>{deleteTodo(todo.id)}}>삭제</button>
+              <h5 style={{ textDecoration: todo.complete ? "line-through"  : "none"}}>{todo.name}</h5>
+              <div className="btns">
+              <button className="compBtn" onClick={() => changeTodo(todo.id)}>{todo.complete ? "취소" : "완료"}</button>
+              <button className="dltBtn" onClick={()=>{deleteTodo(todo.id)}}>삭제</button></div>
             </div>
           );
         })}
